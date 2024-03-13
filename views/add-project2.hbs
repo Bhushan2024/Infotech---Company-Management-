@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles4.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/adminlogout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="left-menu">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li>
+                <a href="#">Recruitment</a>
+                <ul class="submenu">
+                    <li><a href="/add-jobs">Add Jobs</a></li>
+                    <li><a href="/jobs">Show Jobs</a></li>
+                    <li><a href="/add-skills">Skills</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Project</a>
+                <ul class="submenu">
+                    <li><a href="/showprojects">Projects</a></li>
+                    <li><a href="/showprojects">Add Task</a></li>
+                    <li><a href="/add-project">Add Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Notice Board</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">License</a></li>
+        </ul>
+    </div>
+    <div class="main-con">
+        <h2>Add project</h2>
+        <form action="/auth/addproject" method="POST" id="addJobForm">
+            <div class="form-group">
+                <label for="projectTitle">Project Title</label>
+                <input type="text" id="jobTitle" name="projectTitle" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4" autocomplete="off" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="selectedSkills">Selected Candidates</label>
+                <div id="selectedSkills" class="selected-skills"></div>
+
+            </div>
+            <input type="hidden" id="selectedSkillsInput" name="selectedcand" value="">
+            <div class="form-group">
+                <label for="skills">Candidates available for this Domain</label>
+                <select id="skillsDropdown" multiple>
+                    {{#each foundcand}}
+                    <option value="{{this._id}}">{{this.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <input type="hidden" name="candidates" value="{{selectedSkills}}">
+            <input type="hidden" id="selectedSkillsInput" name="selectedSkills2" value="">
+            {{#if message}}
+            <h4>{{message}}</h4>
+            {{/if}}
+            <button type="submit">Add Project</button>
+        </form>
+    </div>
+    <script src="/js/add-jobs.js"></script> <!-- Include JavaScript file -->
+</body>
+
+</html>

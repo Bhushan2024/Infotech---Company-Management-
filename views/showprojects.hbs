@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles9.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/adminlogout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="left-menu">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li>
+                <a href="#">Recruitment</a>
+                <ul class="submenu">
+                    <li><a href="/add-jobs">Add Jobs</a></li>
+                    <li><a href="/jobs">Show Jobs</a></li>
+                    <li><a href="/add-skills">Skills</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Project</a>
+                <ul class="submenu">
+                    <li><a href="/showprojects">Projects</a></li>
+                    <li><a href="/showprojects">Add Task</a></li>
+                    <li><a href="/add-project">Add Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Notice Board</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">License</a></li>
+        </ul>
+    </div>
+    <div class="main-con" style="margin-left: 250px;">
+        <br />
+        <h2>Current Projects</h2>
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Project Title</th>
+                    <th>Description</th>
+                    <th style=" width: 15%;">Assigned</th>
+                    <th style=" width: 10%;">Action</th>
+                    <th>Show Task</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each projectsWithCandidates}}
+                <tr>
+                    <form action="/auth/showinfofortask" method="post">
+                        <td>{{title}}</td>
+                        <td>{{description}}</td>
+                        <td>
+                            {{#each candidates}}
+                            <li style="list-style-type: none;">{{this}}</li>
+                            {{/each}}
+                        </td>
+                        <input type="hidden" value="{{title}}" name="title">
+                        <input type="hidden" value="{{candidates}}" name="candidates">
+                        <td><button type="submit">Add Task</button></td>
+                    </form>
+
+                    <td>
+                        <form action="/auth/showtask" method="post">
+                            <input type="hidden" value="{{title}}" name="title">
+                            <button type="submit">Task</button>
+                        </form>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotech - Career</title>
+    <link rel="stylesheet" href="/css/styles12.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Infotech</h1>
+            <nav>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/project">Projects</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="main-con">
+        <br>
+        <h2>{{title}} Project Task</h2>
+        <br>
+        <div class="card-container">
+            {{#each Taskss}}
+            <div class="card">
+                <h3>{{taskTitle}}</h3>
+                <p>{{description}}</p>
+
+                <h4>Status: {{status}}</h4>
+
+                <form action="/auth/updatelink" method="post">
+                    <input type="hidden" value="{{title}}" name="title">
+                    <input type="hidden" value="{{candidates}}" name="candidates">
+                    <input type="hidden" value="{{taskTitle}}" name="taskTitle">
+                    <button type="button" onclick="openUploadPopup('{{taskTitle}}')">Upload Work</button>
+
+                    <button type="button" onclick="showComments(this)" data-comments="{{comment}}"><i
+                            class="fas fa-comments"></i></button>
+
+
+                </form>
+                <form action="/auth/updateTaskStatus" method="post">
+                    <input type="hidden" value="{{description}}" name="description">
+                    <input type="hidden" value="{{projectTitle}}" name="projectTitle">
+
+                    <input type="hidden" value="{{taskTitle}}" name="taskTitle">
+                    <button type="submit" name="action" value="markCompleted">Mark as Completed</button>
+
+                </form>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div id="uploadPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeUploadPopup()">&times;</span>
+            <h2>Upload Work Link</h2>
+            <form action="/auth/updatelink" method="post">
+                <label for="githubLink">GitHub Link:</label>
+                <input type="hidden" id="githubLinkTask" name="githubLinkTask">
+                <input type="hidden" value="{{title}}" name="title">
+                <input type="text" id="githubLink" name="githubLink" placeholder="Enter GitHub link">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="commentPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeCommentPopup()">&times;</span>
+            <h2>Comments</h2>
+            <div id="commentList" class="comment-list"></div>
+        </div>
+    </div>
+
+
+    <script>
+        function openUploadPopup(taskTitle) {
+            document.getElementById("uploadPopup").style.display = "block";
+            document.getElementById("githubLinkTask").value = taskTitle;
+        }
+
+        //!-- function openUploadPopup(button) {
+        //    var taskTitle = button.parentElement.querySelector('input[name="title"]').value;
+        //    alert(taskTitle)
+        //    document.getElementById("uploadPopup").style.display = "block";
+        //    document.getElementById("githubLinkTask").value = taskTitle;
+        //}
+
+        function closeUploadPopup() {
+            document.getElementById("uploadPopup").style.display = "none";
+        }
+
+
+
+
+
+        function showComments(button) {
+            var commentsData = button.getAttribute('data-comments');
+            var commentContainer = document.getElementById("commentList");
+            commentContainer.innerHTML = '';
+
+            var commentsArray = commentsData.split('},{');
+
+            commentsArray.forEach(function (commentStr) {
+                var textMatch = commentStr.match(/text: '([^']+)'/);
+                var text = textMatch ? textMatch[1] : '';
+
+                var dateMatch = commentStr.match(/date: ([^,]+),/);
+                var date = dateMatch ? new Date(dateMatch[1]).toLocaleString() : '';
+
+                var commentText = document.createElement('p');
+                commentText.textContent = 'Message: ' + text;
+                var commentDate = document.createElement('p');
+                commentDate.textContent = 'Date: ' + date;
+
+                commentContainer.appendChild(commentText);
+                commentContainer.appendChild(commentDate);
+
+                commentContainer.appendChild(document.createElement('br'));
+            });
+
+            document.getElementById("commentPopup").style.display = "block";
+        }
+
+
+
+
+
+
+
+        function closeCommentPopup() {
+            document.getElementById("commentPopup").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>

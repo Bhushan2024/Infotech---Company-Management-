@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles8.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/adminlogout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="left-menu">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li>
+                <a href="#">Recruitment</a>
+                <ul class="submenu">
+                    <li><a href="/add-jobs">Add Jobs</a></li>
+                    <li><a href="/jobs">Show Jobs</a></li>
+                    <li><a href="/add-skills">Skills</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Project</a>
+                <ul class="submenu">
+                    <li><a href="/showprojects">Projects</a></li>
+                    <li><a href="/showprojects">Add Task</a></li>
+                    <li><a href="/add-project">Add Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Notice Board</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">License</a></li>
+        </ul>
+    </div>
+
+    <div class="main-con" style="margin-left: 250px;">
+        <br />
+        <h2>Application : {{title}}</h2>
+
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Projects</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>Apply</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each collectionData}}
+                <tr>
+                    <form action="/auth/application" method="post">
+                        <td>{{name}}</td>
+                        <td>{{email}}</td>
+                        <td>{{project}}</td>
+                        <td>{{status}}</td>
+                        <input type="hidden" name="title" value="{{../title}}">
+                        <input type="hidden" name="name" value="{{name}}">
+                        <input type="hidden" name="email" value="{{email}}">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <td>
+                            <select name="status" class="custom-select">
+                                <option value="Pending" class="default">Select Option</option>
+                                <option value="Rejected" class="rejected">Reject</option>
+                                <option value="Hired" class="hired">Hired</option>
+                                <option value="Interview" class="interview">Interview</option>
+                            </select>
+
+                        </td>
+                        <td><button type="submit">Apply</button></td>
+                    </form>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

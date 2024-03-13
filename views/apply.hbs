@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotech - Apply</title>
+    <link rel="stylesheet" href="/css/styles6.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="containerh">
+            <h1>Infotech</h1>
+            <nav>
+                <ul>
+                    <li><a href="/career">Career</a></li>
+                    <li><a href="/">About Us</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <br/>
+    <br/>
+    <h2 style="text-align: center;">Apply for Job</h2>
+    <div id="application-form" class="form-container">
+        <form action="/auth/apply" method="POST">
+            <div class="job-title-container">
+                <p class="job-title">Job Title : <span id="jobTitle"></span></p>
+            </div>
+            <input type="hidden" id="jobTitleInput" name="jobTitleInput">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Your Projects</label>
+            <textarea id="project" name="project" placeholder="Your Projects with Github Link" required></textarea>
+            <button type="submit" class="button">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+        const jobTitle = getQueryParam('jobTitle');
+        const jobTitleElement = document.getElementById('jobTitle');
+
+        const jobTitleInputElement = document.getElementById('jobTitleInput');
+        jobTitleElement.textContent = jobTitle;
+        jobTitleInputElement.value = jobTitle;
+
+    </script>
+
+</body>
+
+</html>

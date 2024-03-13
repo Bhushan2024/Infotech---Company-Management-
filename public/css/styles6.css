@@ -1,0 +1,106 @@
+.header {
+  background: linear-gradient(to right, #4a1f83, #6b2ca3);
+    color: #fff;
+    width: 100%;
+  }
+  
+  .containerh {
+    margin: 0px;
+    padding: 5px 30px;
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .header h1 {
+    max-width: 25%;
+  }
+  
+  nav ul {
+    padding-top: 20px;
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #5b13b9;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Job title */
+.job-title-container {
+    margin-bottom: 20px;
+}
+
+.job-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #4a1f83, #6b2ca3);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #6b1dce;
+}
+
+/* Textarea placeholder */
+textarea::placeholder {
+    color: #999;
+}

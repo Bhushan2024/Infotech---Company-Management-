@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/styles7.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="containerh">
+      <h1>Admin Panel</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="/adminlogout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="left-menu">
+    <ul>
+      <li><a href="/home">Dashboard</a></li>
+      <li>
+        <a href="#">Recruitment</a>
+        <ul class="submenu">
+          <li><a href="/add-jobs">Add Jobs</a></li>
+          <li><a href="/jobs">Show Jobs</a></li>
+          <li><a href="/add-skills">Skills</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project</a>
+        <ul class="submenu">
+          <li><a href="/showprojects">Projects</a></li>
+          <li><a href="/showprojects">Add Task</a></li>
+          <li><a href="/add-project">Add Project</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Notice Board</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">License</a></li>
+    </ul>
+  </div>
+  <div class="main-con" style="margin-left: 250px; ;">
+    <h2>Posted Jobs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Description</th>
+          <th>Skills</th>
+          <th>Salary</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each jobPostings}}
+        <tr>
+          <form action="/auth/showapplication" method="post">
+            <td>{{jobTitle}}</td>
+            <td>{{description}}</td>
+            <td>{{skills}}</td>
+            <td>{{salary}}</td>
+            <td>{{status}}</td>
+            <input type="hidden" value="{{jobTitle}}" name="jobTitle">
+            <td><button type="submit">View Applicants</button></td>
+          </form>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  </div>
+</body>
+
+</html>

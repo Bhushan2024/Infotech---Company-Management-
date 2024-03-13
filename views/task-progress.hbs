@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles10.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="containerh">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/adminlogout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="left-menu">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li>
+                <a href="#">Recruitment</a>
+                <ul class="submenu">
+                    <li><a href="/add-jobs">Add Jobs</a></li>
+                    <li><a href="/jobs">Show Jobs</a></li>
+                    <li><a href="/add-skills">Skills</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Project</a>
+                <ul class="submenu">
+                    <li><a href="/showprojects">Projects</a></li>
+                    <li><a href="/showprojects">Add Task</a></li>
+                    <li><a href="/add-project">Add Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Notice Board</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">License</a></li>
+        </ul>
+    </div>
+    <div class="main-con" style="margin-left: 250px;">
+        <br />
+        <h2>Task Progress - {{title}}</h2>
+        <br />
+        <h4>Task Title: {{title}}</h4>
+        <h4>Task Description: {{description}}</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Assigned</th>
+                    <th>Work link</th>
+                    <th>Status</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each foundTask}}
+                <form action="#" method="post">
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>
+                            {{#if link}}
+                            {{#each link}}
+                            <a href="{{this}}" target="_blank">{{this}}</a><br>
+                            {{/each}}
+                            
+                            {{else}}
+                            Work not completed yet
+                            {{/if}}
+                        </td>
+                        <td>{{status}}</td>
+                        <input type="hidden" value="{{projectTitle}}" name="projectTitle">
+                        <input type="hidden" value="{{title}}" name="title">
+                        <input type="hidden" value="{{candidates}}" name="candidates">
+                        <td><button type="button"
+                                onclick="toggleUploadPopup('{{title}}', '{{name}}', '{{description}}')">Comment</button>
+                        </td>
+                        </td>
+                    </tr>
+                </form>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div id="uploadPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeUploadPopup()">&times;</span>
+            <h2>Comment</h2>
+            <form action="/auth/addcomment" method="post">
+                <input type="hidden" id="assignedPerson" name="assignedPerson">
+                <input type="hidden" id="taskDescription" name="taskDescription">
+                <label for="githubLink">Comment:</label>
+                <input type="hidden" id="githubLinkTask" name="githubLinkTask">
+                <input type="hidden" value="{{title}}" name="title1">
+                <input type="text" id="githubLink" name="githubLink" autocomplete="off" placeholder="Enter Comment">
+                <br>
+                <input type="checkbox" id="markPending" name="markPending">
+                <label for="markPending">Mark as pending</label>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function toggleUploadPopup(taskTitle, assignedPerson, taskDescription) {
+            var popup = document.getElementById("uploadPopup");
+            var githubLinkTaskInput = document.getElementById("githubLinkTask");
+            var assignedPersonInput = document.getElementById("assignedPerson");
+            var taskDescriptionInput = document.getElementById("taskDescription");
+
+            githubLinkTaskInput.value = taskTitle;
+            assignedPersonInput.value = assignedPerson;
+            taskDescriptionInput.value = taskDescription;
+
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        function openUploadPopup(button) {
+            var taskTitle = button.parentElement.querySelector('input[name="title"]').value;
+            document.getElementById("uploadPopup").style.display = "block";
+            document.getElementById("githubLinkTask").value = taskTitle;
+        }
+
+        function closeUploadPopup() {
+            document.getElementById("uploadPopup").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

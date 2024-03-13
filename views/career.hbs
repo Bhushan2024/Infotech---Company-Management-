@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotech - career</title>
+    <link rel="stylesheet" href="/css/styles5.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Infotech</h1>
+            <nav>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/login">login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="main-con">
+        <div class="background-img">
+            <div class="data">
+                <h2>Join Our Team</h2>
+            <a href="#job-list" class="button">Explore Career Options</a>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <h2 style="text-align: center;">Available Jobs</h2>
+
+    <div id="job-list" class="job-list">
+        {{#each jobs}}
+        <div class="job-pair">
+            <div class="job-card">
+                <h3>{{this.jobTitle}}</h3>
+                <p>Description: {{this.description}}</p>
+                <p>Salary: {{this.salary}}</p>
+                <p class="skills">Skills Required: {{this.skills}}</p>
+                <a href="/apply?jobTitle={{this.jobTitle}}" class="button">Apply Now</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+</body>
+
+</html>

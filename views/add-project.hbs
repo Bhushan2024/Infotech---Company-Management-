@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/css/styles2.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="/adminlogout">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="left-menu">
+        <ul>
+            <li><a href="/home">Dashboard</a></li>
+            <li>
+                <a href="#">Recruitment</a>
+                <ul class="submenu">
+                    <li><a href="/add-jobs">Add Jobs</a></li>
+                    <li><a href="/jobs">Show Jobs</a></li>
+                    <li><a href="/add-skills">Skills</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Project</a>
+                <ul class="submenu">
+                    <li><a href="/showprojects">Projects</a></li>
+                    <li><a href="/showprojects">Add Task</a></li>
+                    <li><a href="/add-project">Add Project</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Notice Board</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">License</a></li>
+        </ul>
+    </div>
+    <div class="main-con" style="margin-left: 250px;  ;">
+        <h2>Add Project</h2>
+
+        <form action="/auth/loademp" method="POST" id="addJobForm" style="max-width: 400px; margin: 0 auto;">
+            <div class="form-group">
+                <label for="jobPosting">Select Domain:</label>
+                <br />
+                <select id="jobPosting" name="jobPosting" style="width: 100%; padding: 8px;">
+                    {{#each jobPostings}}
+                    <option value="{{jobTitle}}">{{jobTitle}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <br />
+
+            <button type="submit"
+                style="width: 60%; border-radius:5px; padding: 10px; background-color: #7d2ae8; color: #fff; border: none; cursor: pointer;">Proceed</button>
+        </form>
+
+    </div>
+
+    </div>
+</body>
+
+</html>

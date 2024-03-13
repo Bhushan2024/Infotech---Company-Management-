@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" href="/css/styles3.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="containerh">
+      <h1>Admin Panel</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Profile</a></li>
+          <li><a href="/adminlogout">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="left-menu">
+    <ul>
+      <li><a href="/home">Dashboard</a></li>
+      <li>
+        <a href="#">Recruitment</a>
+        <ul class="submenu">
+          <li><a href="/add-jobs">Add Jobs</a></li>
+          <li><a href="/jobs">Show Jobs</a></li>
+          <li><a href="/add-skills">Skills</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project</a>
+        <ul class="submenu">
+          <li><a href="/showprojects">Projects</a></li>
+          <li><a href="/showprojects">Add Task</a></li>
+          <li><a href="/add-project">Add Project</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Notice Board</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">License</a></li>
+    </ul>
+  </div>
+  <div class="main-con">
+    <h2>Add Skills</h2>
+    <form id="addSkillForm" action="/auth/addskills" method="post">
+      <input type="text" id="skillName" placeholder="Skill Name" name="skill" autocomplete="off">
+      <button type="submit">Add Skill</button>
+    </form>
+    {{#if message}}
+    <h4>{{message}}</h4>
+    {{/if}}
+    <div id="skillList">
+      <div class="added-skills-container">
+        <h4>Added Skills</h4>
+        <ul class="skill-list">
+          {{#each skills}}
+          <li>{{this.skill}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

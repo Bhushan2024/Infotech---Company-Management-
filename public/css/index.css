@@ -1,0 +1,288 @@
+.header {
+    background: linear-gradient(to right, #4a1f83, #6b2ca3);
+    color: #fff;
+    width: 100%;
+  }
+  
+  .containerh {
+    margin: 0px;
+    padding: 1px 30px;
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .header h1 {
+    max-width: 25%;
+  }
+  
+  nav ul {
+    padding-top: 2px;
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #5b13b9;
+  }
+  
+  body {
+    
+    margin: 0px;
+  }
+* {
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+header {
+    background-color: #7d2ae8;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-family: Arial, sans-serif; 
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #eaeaea;
+}
+
+#about {
+    padding: 55px 0;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-wrapper {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0 50px 0 50px;
+}
+
+.text-wrapper {
+    padding-left: 10px;
+    flex: 1;
+}
+
+.overlay-text {
+    text-align: center;
+    color: #555;
+}
+
+.overlay-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.overlay-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#benefits {
+    background: linear-gradient(to right, #4a1f83, #6b2ca3);
+    color: #fff;
+    padding: 80px 0;
+}
+
+#benefits .container {
+    text-align: center;
+}
+
+#benefits h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+}
+
+#benefits ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#benefits ul li {
+    font-size: 20px;
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#benefits ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#benefits ul li span {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+
+#programs {
+    background-color: #f0f0f0;
+    padding: 80px 0;
+}
+
+#programs .container {
+    text-align: center;
+}
+
+#programs h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#programs p {
+    font-size: 18px;
+    margin-bottom: 35px;
+    margin-top: 18px;
+}
+
+.program-cards-container {
+    overflow: hidden;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.program-cards {
+    display: flex;
+    animation: slidePrograms 15s linear infinite; 
+}
+
+.program-card {
+    flex: 0 0 calc(100% / 3); 
+    background-color: #fff;
+    color: #4a1f83;
+    margin: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+}
+.program-card p{
+    padding-top: 15px;
+}
+@keyframes slidePrograms {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(-33.33%);
+    }
+    50% {
+        transform: translateX(-66.66%);
+    }
+}
+footer {
+    background-color: #4a1f83;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer .container {
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    header .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+} */

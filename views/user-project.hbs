@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infotech - career</title>
+    <link rel="stylesheet" href="/css/styles11.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="containerh">
+            <h1>Infotech</h1>
+            <nav>
+                <ul>
+                    <li><a href="/index">Home</a></li>
+                    <li><a href="/user-projects">Projects</a></li>
+                    <li><a href="/logout">logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <div class="main-con">
+        <br>
+        <h2>Your Projects</h2>
+        <br>
+        <div class="card-container">
+            {{#each projectsWithCandidates}}
+            <div class="card">
+                <h3>{{title}}</h3>
+                <p>{{description}}</p>
+                <ul>
+                    <li><strong>Team Members:</strong></li> 
+                    {{#each candidates}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                <form action="/auth/userShowTask" method="post">
+                    <input type="hidden" value="{{title}}" name="title">
+                    <input type="hidden" value="{{candidates}}" name="candidates">
+                    <button type="submit">Show Task</button>
+                </form>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    
+
+</body>
+
+</html>

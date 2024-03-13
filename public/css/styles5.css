@@ -1,0 +1,156 @@
+.header {
+  background: linear-gradient(to right, #4a1f83, #6b2ca3);
+    color: #fff;
+    width: 100%;
+  }
+  
+  .containerh {
+    margin: 0px;
+    padding: 5px 30px;
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .header h1 {
+    max-width: 25%;
+  }
+  
+  nav ul {
+    padding-top: 10px;
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: #5b13b9;
+  }
+  
+  body {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+  }
+
+.background-img {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  background-image: url('https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2022/07/people-working-in-a-room.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-img h2,
+.background-img .button {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.background-img .data{
+ 
+  margin-top: 350px; ;
+}
+
+
+.button {
+  background: linear-gradient(to right, #4a1f83, #6b2ca3);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  background-color: #6915d6;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.job-list {
+  margin: 50px auto;
+  width: 80%;
+}
+
+.job-pair {
+  margin-bottom: 30px;
+}
+
+.job-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  color: #4a1f83;
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.job-card .button {
+  background: linear-gradient(to right, #4a1f83, #6b2ca3);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.job-card .button:hover {
+  background-color: #6915d6;
+}
+
+.skills {
+  font-style: italic;
+}
+
+
+.header nav ul {
+  margin-top: 20px; 
+}
+
+.background-img .data {
+  margin-top: 100px;
+}
+
